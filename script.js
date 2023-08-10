@@ -92,6 +92,15 @@ class Parrot extends Bird {
         if(option) {
             super.makeSound()
         }
-        console.log("This parrot can talk")
+        if(this.canTalk) {
+            console.log("I am a talking parrot")
+        }
     }
 }
+
+
+var polly = new Parrot(true);
+var fiji = new Parrot(false);
+
+polly.makeSound()
+fiji.makeSound()
