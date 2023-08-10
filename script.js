@@ -7,6 +7,21 @@ class Animal {
         this.color = color;
         this.energy = energy
     }
+    isActive() {
+        if(this.energy > 0) {
+            this.energy -= 20;
+            console.log("Energy is increasing, currently at", this.energy)
+        } else if(this.energy == 0) {
+            this.sleep()
+        }
+    }
+    sleep() {
+        this.energy += 20;
+        console.log("Energy is increasing, currently at", this.energy)
+    }
+    getColor() {
+        console.log(this.color)
+    }
 }
 
 class Cat extends Animal {
@@ -18,6 +33,9 @@ class Cat extends Animal {
         this.canJumpHigh = canJumpHigh
         this.canClimbTrees = canClimbTrees
     }
+    makeSound() {
+        console.log(this.sound)
+    }
 }
 
 class Bird extends Animal {
@@ -28,6 +46,9 @@ class Bird extends Animal {
         this.sound = sound
         this.canFly = canFly
     }
+    makeSound() {
+        console.log(this.sound)
+    }
 }
 
 class HouseCat extends Cat {
@@ -36,6 +57,12 @@ class HouseCat extends Cat {
     constructor(color, energy, sound, canJumpHigh, canClimbTrees, houseCatSound="meow") {
         super(color, energy, sound, canJumpHigh, canClimbTrees)
         this.houseCatSound = houseCatSound
+    }
+    makeSound(option) {
+        if(option) {
+            super.makeSound()
+        }
+        console.log(this.houseCatSound)
     }
 }
 
@@ -46,6 +73,12 @@ class Tiger extends Cat {
         super(color, energy, sound, canClimbTrees, canJumpHigh)
         this.tigerSound = tigerSound
     }
+    makeSound(option) {
+        if(option) {
+            super.makeSound()
+        }
+        console.log(this.tigerSound)
+    }
 }
 
 class Parrot extends Bird {
@@ -54,5 +87,11 @@ class Parrot extends Bird {
     constructor(color, energy, sound, canFly, canTalk=false) {
         super(color, energy, sound, canFly)
         this.canTalk = canTalk
+    }
+    makeSound(option) {
+        if(option) {
+            super.makeSound()
+        }
+        console.log("This parrot can talk")
     }
 }
